@@ -21,11 +21,12 @@ class ViewController: UIViewController
         {
             response in
             
-            if let ARRAY = response.result.value
+            if let result_value = response.result.value
             {
-                if let array = ARRAY as? [Any]
+                if let array = result_value as? [Any]
                 {
-                    if let JSON_OBJECT = array.first
+//                    if let JSON_OBJECT = array.first
+                    for JSON_OBJECT in array
                     {
                         if let dictionary = JSON_OBJECT as? [String:Any]
                         {
@@ -33,38 +34,24 @@ class ViewController: UIViewController
                             {
                                 print("id:\(value)")
                             }
-                        }
-                    }
-                    
-                    if let JSON_OBJECT = array.first
-                    {
-                        if let dictionary = JSON_OBJECT as? [String:Any]
-                        {
+
                             if let value = dictionary["name"] as? String
                             {
                                 print("name:\(value)")
                             }
-                        }
-                    }
-                    
-                    if let JSON_OBJECT = array.first
-                    {
-                        if let dictionary = JSON_OBJECT as? [String:Any]
-                        {
+
                             if let value = dictionary["private"] as? Bool
                             {
                                 print("private:\(value)")
                             }
-                        }
-                    }
-                    
-                    if let JSON_OBJECT = array.first
-                    {
-                        if let dictionary = JSON_OBJECT as? [String:Any]
-                        {
-                            if let value = dictionary["html_url"] as? String
+
+                            if let value = dictionary["homepage"] as? String
                             {
-                                print("html_url:\(value)")
+                                print("homepage:\(value)")
+                            }
+                            else
+                            {
+                                print("homepage:null")
                             }
                         }
                     }
