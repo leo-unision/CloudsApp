@@ -17,9 +17,62 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        Alamofire.request("https://httpbin.org/get").responseJSON
+        Alamofire.request("https://api.github.com/users/octocat/repos").responseJSON
         {
             response in
+            
+            if let ARRAY = response.result.value
+            {
+                if let array = ARRAY as? [Any]
+                {
+                    if let JSON_OBJECT = array.first
+                    {
+                        if let dictionary = JSON_OBJECT as? [String:Any]
+                        {
+                            if let value = dictionary["id"] as? Int
+                            {
+                                print("id:\(value)")
+                            }
+                        }
+                    }
+                    
+                    if let JSON_OBJECT = array.first
+                    {
+                        if let dictionary = JSON_OBJECT as? [String:Any]
+                        {
+                            if let value = dictionary["name"] as? String
+                            {
+                                print("name:\(value)")
+                            }
+                        }
+                    }
+                    
+                    if let JSON_OBJECT = array.first
+                    {
+                        if let dictionary = JSON_OBJECT as? [String:Any]
+                        {
+                            if let value = dictionary["private"] as? Bool
+                            {
+                                print("private:\(value)")
+                            }
+                        }
+                    }
+                    
+                    if let JSON_OBJECT = array.first
+                    {
+                        if let dictionary = JSON_OBJECT as? [String:Any]
+                        {
+                            if let value = dictionary["html_url"] as? String
+                            {
+                                print("html_url:\(value)")
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            
 //            print(response.request as Any)
 //            print(response.response as Any)
 //            print(response.data as Any)
@@ -31,42 +84,37 @@ class ViewController: UIViewController
 //                print(ARRAY)
 //            }
             
-            if let JSON = response.result.value
-            {
-                if let dictionary = JSON as? [String:Any]
-                {
-                    if let value = dictionary["origin"] as? String
-                    {
-                        print("解出 key 為 origin 的值")
-                        print(value)
-                    }
-                    
-                    if let value = dictionary["url"] as? String
-                    {
-                        print("解出 key 為 url 的值")
-                        print(value)
-                    }
-                    
-                    if let headers_dictionary = dictionary["headers"] as? [String:Any]
-                    {
-//                        if let value = headers_dictionary["Accept"] as? String
+//            if let JSON = response.result.value
+//            {
+//                if let dictionary = JSON as? [String:Any]
+//                {
+//                    if let value = dictionary["origin"] as? String
+//                    {
+//                        print("解出 key 為 origin 的值")
+//                        print(value)
+//                    }
+//                    
+//                    if let value = dictionary["url"] as? String
+//                    {
+//                        print("解出 key 為 url 的值")
+//                        print(value)
+//                    }
+//                    
+//                    if let headers_dictionary = dictionary["headers"] as? [String:Any]
+//                    {
+//                        
+//                        for (key, value) in headers_dictionary
 //                        {
-//                            print("解出 key 為 Accept 的值")
-//                            print(value)
+//                            if let value_string = value as? String
+//                            {
+//                                print(key + ":" + value_string)
+//                            }
 //                        }
-                        
-                        for (key, value) in headers_dictionary
-                        {
-                            if let value_string = value as? String
-                            {
-                                print(key + ":" + value_string)
-                            }
-                        }
-                        
-                        
-                    }
-                }
-            }
+//                        
+//                        
+//                    }
+//                }
+//            }
         }
     }
 
