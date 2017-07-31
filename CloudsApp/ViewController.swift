@@ -63,54 +63,40 @@ class ViewController: UIViewController
                 }
             }
         
-        Alamofire.request("https://httpbin.org/get").responseJSON { response in
-            //            print(response.request as Any)
-            //            print(response.response as Any)
-            //            print(response.data as Any)
-            //            print(response.result)
+        Alamofire.request("https://httpbin.org/get").responseJSON
+        { response in
             
-            //            if let ARRAY = response.result.value {
-            //                print("準備印出 result 中的資料")
-            //                print(ARRAY)
-            //            }
-            
-            if let JSON = response.result.value {
-                if let dictionary = JSON as? [String: Any] {//將 JSON 物件，轉成 dictionary 的 key:value 的陣列
-                    
-                    if let value = dictionary["origin"] as? String {
-                        print("解出 key 為 origin 的值")
-                        print(value)
-                    }
-                    
-                    if let value = dictionary["url"] as? String {
-                        print("解出 key 為 url 的值")
-                        print(value)
-                    }
-                    
-                    //要當做 JSON 物件再解一次
-                    if let headers_dictionary = dictionary["headers"] as? [String: Any] {
-                        for (key, value) in headers_dictionary {
-                            if let value_string = value as? String {
-                                print(key + ":" + value_string)
-                            }
-                        }
-                    }
-                    
-                    //不用解了，因為沒東西
-                    if let value = dictionary["args"] as? String {//解不出來，因為不是 String
-                        print("解出 key 為 args 的值")
-                        print(value)
-                    }
-                }
+            guard let JSON_OBJECT = response.result.value,
+                let dictionary = JSON_OBJECT as? [String: Any]
+                else {
+                    return
             }
+                    
+            guard let origin = dictionary["origin"] as? String else {
+                        return
+            }
+                
+            print("origin: \(origin)")
+                
+            guard let url = dictionary["url"] as? String else {
+                return
+            }
+                
+            print("url: \(url)")
+            
+            let httpbinOrgJson = HttpbinOrgJson(origin: origin, url: url)
+            print(httpbinOrgJson)
+            
+            let httpbinOrgJson2 = HttpbinOrgJson()
+            print(httpbinOrgJson2)
         }
     }
     
-    override func didReceiveMemoryWarning() {
+            
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
 
