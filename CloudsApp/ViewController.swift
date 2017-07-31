@@ -28,25 +28,38 @@ class ViewController: UIViewController
                     return
                 }
                 
-//                if let dictionary = JSON_OBJECT as? [String: Any] {//將 JSON 物件轉成 key-value 陣列
-                    
-                    if let value = dictionary["id"] as? Int {
-                        print("id: \(value)")
+                for (key, value) in dictionary
+                {
+                    switch value
+                    {
+                    case is Int:
+                        print("\(key):\(value)(Int)")
+                    case is String:
+                        print("\(key):\(value)(String)")
+                    case is Bool:
+                        print("\(key):\(value)(Bool)")
+                    default:
+                        print("\(key):(unknown type)")
                     }
-                    
-                    if let value = dictionary["name"] as? String {
-                        print("name: \(value)")
-                    }
-                    
-                    if let value = dictionary["private"] as? Bool {
-                        print("private: \(value)")
-                    }
-                    
-                    if let value = dictionary["homepage"] as? String {
-                        print("homepage: \(value)")
-                    } else {
-                        print("homepage: null")//不知道原始格式之下的處理
-                    }
+                }
+                
+//                    if let value = dictionary["id"] as? Int {
+//                        print("id: \(value)")
+//                    }
+//                    
+//                    if let value = dictionary["name"] as? String {
+//                        print("name: \(value)")
+//                    }
+//                    
+//                    if let value = dictionary["private"] as? Bool {
+//                        print("private: \(value)")
+//                    }
+//                    
+//                    if let value = dictionary["homepage"] as? String {
+//                        print("homepage: \(value)")
+//                    } else {
+//                        print("homepage: null")//不知道原始格式之下的處理
+//                    }
                 }
             }
         
