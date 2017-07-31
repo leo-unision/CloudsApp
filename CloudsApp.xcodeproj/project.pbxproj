@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3CD62331F2ED7D30013B5B1 /* httpbin.org.json.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD62321F2ED7D30013B5B1 /* httpbin.org.json.swift */; };
+		B3CD62401F2F07570013B5B1 /* api.github.com.json.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD623F1F2F07570013B5B1 /* api.github.com.json.swift */; };
 		B3D460831F25BE3F005162D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D460821F25BE3F005162D4 /* AppDelegate.swift */; };
 		B3D460851F25BE3F005162D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D460841F25BE3F005162D4 /* ViewController.swift */; };
 		B3D460881F25BE3F005162D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D460861F25BE3F005162D4 /* Main.storyboard */; };
@@ -90,6 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B3CD62321F2ED7D30013B5B1 /* httpbin.org.json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpbin.org.json.swift; sourceTree = "<group>"; };
+		B3CD623F1F2F07570013B5B1 /* api.github.com.json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = api.github.com.json.swift; sourceTree = "<group>"; };
 		B3D4607F1F25BE3F005162D4 /* CloudsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D460821F25BE3F005162D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3D460841F25BE3F005162D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 			children = (
 				B3D460821F25BE3F005162D4 /* AppDelegate.swift */,
 				B3D460841F25BE3F005162D4 /* ViewController.swift */,
+				B3CD62321F2ED7D30013B5B1 /* httpbin.org.json.swift */,
+				B3CD623F1F2F07570013B5B1 /* api.github.com.json.swift */,
 				B3D460861F25BE3F005162D4 /* Main.storyboard */,
 				B3D460891F25BE3F005162D4 /* Assets.xcassets */,
 				B3D4608B1F25BE3F005162D4 /* LaunchScreen.storyboard */,
@@ -289,8 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3CD62401F2F07570013B5B1 /* api.github.com.json.swift in Sources */,
 				B3D460851F25BE3F005162D4 /* ViewController.swift in Sources */,
 				B3D460831F25BE3F005162D4 /* AppDelegate.swift in Sources */,
+				B3CD62331F2ED7D30013B5B1 /* httpbin.org.json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +472,7 @@
 				B3D460931F25BE3F005162D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
